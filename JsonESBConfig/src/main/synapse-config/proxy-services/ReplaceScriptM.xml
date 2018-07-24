@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="ReplaceScriptM" startOnLoad="true" trace="enable" transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+    <target faultSequence="fault">
+        <inSequence>
+            <fileconnector.read>
+                <source>file://Users/chanuka/Documents/support/TWLSUB-9</source>
+                <filePattern>.*\.txt</filePattern>
+            </fileconnector.read>
+            <log>
+                <property expression="//s:text/text()" name="Text Value" xmlns:s="http://ws.apache.org/commons/ns/payload"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+    </target>
+</proxy>

@@ -1,0 +1,72 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "object",
+  "properties" : {
+    "oprid" : {
+      "id" : "http://wso2jsonschema.org/oprid",
+      "type" : "string"
+    },
+    "action" : {
+      "id" : "http://wso2jsonschema.org/action",
+      "type" : "string"
+    },
+    "emplid" : {
+      "id" : "http://wso2jsonschema.org/emplid",
+      "type" : "string"
+    },
+    "template" : {
+      "id" : "http://wso2jsonschema.org/template",
+      "type" : "string"
+    },
+    "roles" : {
+      "id" : "http://wso2jsonschema.org/roles",
+      "type" : "array",
+      "items" : [ {
+        "id" : "http://wso2jsonschema.org/roles/0",
+        "type" : "string"
+      } ]
+    },
+    "rtmgroups" : {
+      "id" : "http://wso2jsonschema.org/rtmgroups",
+      "type" : "array",
+      "items" : [ {
+        "id" : "http://wso2jsonschema.org/rtmgroups/0",
+        "type" : "object",
+        "properties" : {
+          "sourcename" : {
+            "id" : "http://wso2jsonschema.org/rtmgroups/0/sourcename",
+            "type" : "string"
+          },
+          "groupname" : {
+            "id" : "http://wso2jsonschema.org/rtmgroups/0/groupname",
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "secseq" : {
+      "id" : "http://wso2jsonschema.org/secseq",
+      "type" : "array",
+      "items" : [ {
+        "id" : "http://wso2jsonschema.org/secseq/0",
+        "type" : "object",
+        "properties" : {
+          "table" : {
+            "id" : "http://wso2jsonschema.org/secseq/0/table",
+            "type" : "string"
+          },
+          "col" : {
+            "id" : "http://wso2jsonschema.org/secseq/0/col",
+            "type" : "string"
+          },
+          "val" : {
+            "id" : "http://wso2jsonschema.org/secseq/0/val",
+            "type" : "string"
+          }
+        }
+      } ]
+    }
+  }
+}

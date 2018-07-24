@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="SimpleService" startOnLoad="true" trace="enable" transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+    <target faultSequence="fault">
+        <inSequence>
+            <fileconnector.read>
+                <source>file://Users/chanuka/Documents/support/xml</source>
+                <filePattern>.*\.xml</filePattern>
+            </fileconnector.read>
+            <iterate continueParent="true" expression="//Devices/MobileDevice" sequential="true">
+                <target>
+                    <sequence>
+                        <property expression="//MobileDevice/Id/text()" name="MobileDevice" scope="default" type="STRING"/>
+                        <property name="CUSTOM_RESPONSE" scope="default" type="STRING" value=""/>
+                        <iterate continueParent="true" expression="//User/Devices" id="ITR_AGG">
+                            <target>
+                                <sequence>
+                                    <aggregate id="ITR_AGG">
+                                        <completeCondition>
+                                            <messageCount max="-1" min="-1"/>
+                                        </completeCondition>
+                                        <onComplete expression="//Devices">
+                                            <foreach expression="//Device" id="foreach_1" xmlns:m0="http://services.samples">
+                                                <sequence>
+                                                    <property expression="//Id/text()" name="DeviceId" scope="default" type="STRING"/>
+                                                    <property expression="//Name/text()" name="DeviceName" scope="default" type="STRING"/>
+                                                    <log level="custom">
+                                                        <property expression="get-property('DeviceId')" name="DeviceId"/>
+                                                    </log>
+                                                    <script language="js"><![CDATA[var devicename = mc.getProperty('DeviceName');
+	 					var deviceid = mc.getProperty('DeviceId');
+        				var finaldevicearray = mc.getProperty("CUSTOM_RESPONSE");
+        				var devicearray ="";
+        				
+        				if(finaldevicearray == ""){	
+        				
+        				devicearray = "{\"devicename\":\"" + devicename + "\",\"deviceid\":\"" +deviceid + "\"}";
+        				finaldevicearray = devicearray;
+        				}
+        				else{
+        				
+        				devicearray = ",{\"devicename\":\"" + devicename + "\",\"deviceid\":\"" +deviceid + "\"}";
+        				finaldevicearray = finaldevicearray + devicearray;
+        				}
+        				var str = finaldevicearray.toString();
+						mc.setProperty("CUSTOM_RESPONSE",str);]]></script>
+                                                </sequence>
+                                            </foreach>
+                                            <log level="custom">
+                                                <property expression="get-property('CUSTOM_RESPONSE')" name="CUSTOM_RESPONSE >>>>>"/>
+                                            </log>
+                                            <payloadFactory media-type="json">
+                                                <format>
+								{
+									"MobileDeviceId":"$1",
+									"Devices":[$2]
+								}
+						</format>
+                                                <args>
+                                                    <arg evaluator="xml" expression="get-property('MobileDevice')"/>
+                                                    <arg evaluator="xml" expression="get-property('CUSTOM_RESPONSE')"/>
+                                                </args>
+                                            </payloadFactory>
+                                            <respond/>
+                                        </onComplete>
+                                    </aggregate>
+                                </sequence>
+                            </target>
+                        </iterate>
+                    </sequence>
+                </target>
+            </iterate>
+        </inSequence>
+        <outSequence/>
+    </target>
+</proxy>

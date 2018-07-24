@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamapper:DataMapperRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper">
+  <input>
+    <treeNode name="root" schemaDataType="OBJECT" level="1">
+      <node name="oprid" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/oprid"/>
+        <properties key="nullable" value="false"/>
+        <outNode>
+          <outgoingLink inNode="//@output/@treeNode.0/@node.0/@node.0/@node.0/@inNode"/>
+        </outNode>
+        <inNode/>
+      </node>
+      <node name="action" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/action"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="emplid" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/emplid"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="template" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/template"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="roles" level="2">
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/roles"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/roles/0"/>
+        <properties key="items_type" value="string"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="rtmgroups" level="2">
+        <node name="sourcename" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/rtmgroups/0/sourcename"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="groupname" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/rtmgroups/0/groupname"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/rtmgroups"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/rtmgroups/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="secseq" level="2">
+        <node name="table" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/secseq/0/table"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="col" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/secseq/0/col"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="val" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/secseq/0/val"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/secseq"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/secseq/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{sourcename={id=http://wso2jsonschema.org/rtmgroups/0/sourcename, type=string}, groupname={id=http://wso2jsonschema.org/rtmgroups/0/groupname, type=string}}"/>
+        <properties key="properties_id" value="{table={id=http://wso2jsonschema.org/secseq/0/table, type=string}, col={id=http://wso2jsonschema.org/secseq/0/col, type=string}, val={id=http://wso2jsonschema.org/secseq/0/val, type=string}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </input>
+  <output>
+    <treeNode name="soapenv:Envelope" schemaDataType="OBJECT" level="1">
+      <node name="soapenv:Body" schemaDataType="OBJECT" level="2">
+        <node name="get:getUserAccessRequest" schemaDataType="OBJECT" level="3">
+          <node name="get:oprid" schemaDataType="STRING" level="4">
+            <properties key="namespaces" value="{prefix=get, url=http://mais.fin.umich.edu/schemas/getUserAccessRequest.v1}"/>
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest/get:oprid"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.0/@outNode/@outgoingLink.0"/>
+          </node>
+          <properties key="namespaces" value="{prefix=get, url=http://mais.fin.umich.edu/schemas/getUserAccessRequest.v1}"/>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{get:oprid={id=http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest/get:oprid, type=string}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="namespaces" value="{prefix=soapenv, url=http://schemas.xmlsoap.org/soap/envelope/}"/>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/soapenv:Body"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{get:getUserAccessRequest={id=http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest, type=object, properties={get:oprid={id=http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest/get:oprid, type=string}}}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="namespaces" value="{prefix=soapenv, url=http://schemas.xmlsoap.org/soap/envelope/},{prefix=get, url=http://mais.fin.umich.edu/schemas/getUserAccessRequest.v1}"/>
+      <properties key="namespaces" value="{prefix=soapenv, url=http://schemas.xmlsoap.org/soap/envelope/}"/>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </output>
+</datamapper:DataMapperRoot>

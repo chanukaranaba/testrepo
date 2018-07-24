@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/header" name="RemoveHeader" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.bar')" name="bar_value"/>
+                <property expression="get-property('query.param.co_modalidade_licitacao')" name="co_modalidade_licitacao_value"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

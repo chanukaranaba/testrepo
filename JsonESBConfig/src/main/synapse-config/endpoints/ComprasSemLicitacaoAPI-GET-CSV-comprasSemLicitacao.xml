@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="ComprasSemLicitacaoAPI-GET-CSV-comprasSemLicitacao" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://compras.dados.gov.br/compraSemLicitacao/v1/compras_slicitacao.csv?{uri.var.param_url}"/>
+</endpoint>

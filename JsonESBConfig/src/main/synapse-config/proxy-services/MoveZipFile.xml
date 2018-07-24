@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="MoveZipFile" startOnLoad="true" trace="enable" transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+    <target faultSequence="fault">
+        <inSequence>
+            <fileconnector.move>
+                <source>file://Users/chanuka/Documents/support/SYSTEMEUSUB-55/source</source>
+                <destination>file://Users/chanuka/Documents/support/SYSTEMEUSUB-55/destination</destination>
+                <filePattern>.*\.zip</filePattern>
+            </fileconnector.move>
+            <log level="custom">
+                <property name="Status" value="file move completed"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+    </target>
+</proxy>

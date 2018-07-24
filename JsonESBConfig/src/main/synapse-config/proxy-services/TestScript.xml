@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="TestScript" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <!--  <script language="groovy"><![CDATA[int intVal_A = "123".toInteger();
+			int intVal_B = "136827101".toInteger();
+			
+			mc.setProperty("INT_VALUE_A",intVal_A);
+			mc.setProperty("INT_VALUE_B",intVal_B);]]></script> -->
+            <log level="custom">
+                <property expression="get-property('INT_VALUE_A')" name="INT_VALUE_A >>>>>"/>
+                <property expression="get-property('INT_VALUE_B')" name="INT_VALUE_B >>>>>"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>

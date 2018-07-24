@@ -1,0 +1,12 @@
+map_S_root_S_Envelope = function(){ 
+var outputsoapenv_Envelope={};
+
+outputsoapenv_Envelope =  {};
+outputsoapenv_Envelope.soapenv_Body =  {};
+outputsoapenv_Envelope.soapenv_Body.get_getUserAccessRequest =  {};
+outputsoapenv_Envelope.soapenv_Body.get_getUserAccessRequest.get_oprid = inputroot.oprid;
+return outputsoapenv_Envelope;
+};
+
+
+

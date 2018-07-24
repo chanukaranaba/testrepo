@@ -1,0 +1,24 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "soapenv",
+  "type" : "object",
+  "properties" : {
+    "soapenv:Body" : {
+      "id" : "http://wso2jsonschema.org/soapenv:Body",
+      "type" : "object",
+      "properties" : {
+        "get:getUserAccessRequest" : {
+          "id" : "http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest",
+          "type" : "object",
+          "properties" : {
+            "get:oprid" : {
+              "id" : "http://wso2jsonschema.org/soapenv:Body/get:getUserAccessRequest/get:oprid",
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

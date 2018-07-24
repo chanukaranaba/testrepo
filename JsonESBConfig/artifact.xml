@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="SimpleService" groupId="com.example.JsonESBConfig.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/SimpleService.xml</file>
+    </artifact>
+    <artifact name="SampleAPI" groupId="com.example.JsonESBConfig.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/SampleAPI.xml</file>
+    </artifact>
+    <artifact name="ComprasSemLicitacaoAPI" groupId="com.example.JsonESBConfig.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ComprasSemLicitacaoAPI.xml</file>
+    </artifact>
+    <artifact name="ComprasSemLicitacaoAPI-GET-JSON-comprasSemLicitacao" groupId="com.example.JsonESBConfig.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/ComprasSemLicitacaoAPI-GET-JSON-comprasSemLicitacao.xml</file>
+    </artifact>
+    <artifact name="ComprasSemLicitacaoAPI-GET-XML-comprasSemLicitacao" groupId="com.example.JsonESBConfig.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/ComprasSemLicitacaoAPI-GET-XML-comprasSemLicitacao.xml</file>
+    </artifact>
+    <artifact name="ComprasSemLicitacaoAPI-GET-HTML-comprasSemLicitacao" groupId="com.example.JsonESBConfig.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/ComprasSemLicitacaoAPI-GET-HTML-comprasSemLicitacao.xml</file>
+    </artifact>
+    <artifact name="ComprasSemLicitacaoAPI-GET-CSV-comprasSemLicitacao" groupId="com.example.JsonESBConfig.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/ComprasSemLicitacaoAPI-GET-CSV-comprasSemLicitacao.xml</file>
+    </artifact>
+    <artifact name="RemoveHeader" groupId="com.example.JsonESBConfig.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/RemoveHeader.xml</file>
+    </artifact>
+    <artifact name="ReplaceScriptM" groupId="com.example.JsonESBConfig.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/ReplaceScriptM.xml</file>
+    </artifact>
+    <artifact name="MoveZipFile" groupId="com.example.JsonESBConfig.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/MoveZipFile.xml</file>
+    </artifact>
+    <artifact name="TestScript" groupId="com.example.JsonESBConfig.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/TestScript.xml</file>
+    </artifact>
+    <artifact name="FINUserAccess" groupId="com.example.JsonESBConfig.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/FINUserAccess.xml</file>
+    </artifact>
+</artifacts>

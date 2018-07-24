@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/UserAccess" name="FINUserAccess" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" protocol="http" uri-template="/update">
+        <inSequence>
+            <log level="full"/>
+            <log category="DEBUG" level="full"/>
+            <property expression="get-property('SYSTEM_TIME')" name="startTime" scope="default" type="LONG"/>
+            <property expression="$trp:Accept" name="AcceptConvertor" scope="default" type="STRING"/>
+            <property name="Accept" scope="transport" type="STRING" value="application/xml"/>
+            <log level="custom" separator=",">
+                <property name="Start" value="Starting the flow to update the user access"/>
+            </log>
+            <header name="Action" scope="default" value="M_FN_USER_ACCESS.v1"/>
+            <respond/>
+            <datamapper config="gov:datamapper/jsontoxmlconfig.dmc" description="jsontoxmlconfig" inputSchema="gov:datamapper/jsontoxmlconfig_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/jsontoxmlconfig_outputSchema.json" outputType="XML"/>
+            <log level="full"/>
+            <send>
+                <endpoint key="conf:/repository/esb/endpoints/FINIB.xml"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <property expression="$ctx:AcceptConvertor" name="Accept" scope="default" type="STRING"/>
+            <sequence key="MessageConverter"/>
+            <property expression="get-property('SYSTEM_TIME')" name="endTime" scope="default" type="LONG"/>
+            <script language="js"><![CDATA[var time1 = mc.getProperty("startTime");                var time2 = mc.getProperty("endTime");                var timeTaken = time2 - time1;                mc.setProperty("RESPONSE_TIME", timeTaken);]]></script>
+            <property expression="fn:concat('Time taken to update User Access is : ',$ctx:RESPONSE_TIME,' msecs' )" name="Total_time" scope="default" type="STRING"/>
+            <log level="custom" separator=",">
+                <property expression="$ctx:Total_time" name="Time"/>
+            </log>
+            <log category="DEBUG" level="full" separator=","/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

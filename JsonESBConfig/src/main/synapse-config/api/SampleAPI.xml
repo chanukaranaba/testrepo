@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/sampleapi" name="SampleAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/foo/{bar}?co_modalidade_licitacao={value1}">
+        <inSequence>
+            <log level="custom">
+                <property name="OUT_SEQUENCE" value="OUT Sequence Entry**********"/>
+                <property expression="$trp:Cookie" name="COOKIE_1"/>
+                <property expression="$trp:Cookie[1]" name="COOKIE_2"/>
+            </log>
+            <log level="custom">
+                <property expression="get-property('uri.var.bar')" name="bar_value"/>
+                <property expression="get-property('query.param.co_modalidade_licitacao')" name="co_modalidade_licitacao_value"/>
+            </log>
+            <filter regex="true" source="boolean($url:co_modalidade_licitacao)">
+                <then>
+                    <log level="custom">
+                        <property expression="get-property('uri.var.bar')" name="inside_filter_bar_value"/>
+                        <property expression="get-property('query.param.co_modalidade_licitacao')" name="inside_filter_arg1_value"/>
+                    </log>
+                </then>
+                <else/>
+            </filter>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

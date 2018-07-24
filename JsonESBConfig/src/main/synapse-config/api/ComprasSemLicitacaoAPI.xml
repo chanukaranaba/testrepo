@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/compraSemLicitacao" name="ComprasSemLicitacaoAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/compras_slicitacao.json?*">
+        <inSequence>
+            <filter regex="true" source="boolean($url:co_modalidade_licitacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;co_modalidade_licitacao=', $url:co_modalidade_licitacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:co_orgao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;co_orgao=', $url:co_orgao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:co_uasg)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;co_uasg=', $url:co_uasg)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:ds_fundamento_legal)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;ds_fundamento_legal=', $url:ds_fundamento_legal)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:ds_justificativa)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;ds_justificativa=', $url:ds_justificativa)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:ds_lei)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;ds_lei=', $url:ds_lei)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:ds_objeto_licitacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;ds_objeto_licitacao=', $url:ds_objeto_licitacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:dt_ano_aviso_licitacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;dt_ano_aviso_licitacao=', $url:dt_ano_aviso_licitacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:dt_declaracao_dispensa)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;dt_declaracao_dispensa=', $url:dt_declaracao_dispensa)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:dt_publicacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;dt_publicacao=', $url:dt_publicacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:dt_ratificacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;dt_ratificacao=', $url:dt_ratificacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:no_modalidade_licitacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;no_modalidade_licitacao=', $url:no_modalidade_licitacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:nu_aviso_licitacao)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;nu_aviso_licitacao=', $url:nu_aviso_licitacao)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:nu_inciso)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;nu_inciso=', $url:nu_inciso)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:nu_processo)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;nu_processo=', $url:nu_processo)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:offset)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;offset=', $url:offset)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:order)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;order=', $url:order)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:order_by)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;order_by=', $url:order_by)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:qt_total_item)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;qt_total_item=', $url:qt_total_item)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <filter regex="true" source="boolean($url:vr_estimado)">
+                <then>
+                    <property description="parametros" expression="fn:concat(get-property('uri.var.param_url'), '&amp;vr_estimado=', $url:vr_estimado)" name="uri.var.param_url" scope="default" type="STRING"/>
+                </then>
+                <else/>
+            </filter>
+            <header name="Accept" scope="transport" value="application/json"/>
+            <property description="parametros" expression="fn:substring(get-property('uri.var.param_url'), 2)" name="uri.var.param_url" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="fn:concat('#################### RESOURCE', ' : JSON')" name="text"/>
+            </log>
+            <log level="custom">
+                <property expression="fn:concat('#################### param_url : ', get-property('uri.var.param_url'))" name="text"/>
+            </log>
+            <call>
+                <endpoint key="ComprasSemLicitacaoAPI-GET-JSON-comprasSemLicitacao"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/compras_slicitacao.csv?*">
+        <inSequence>
+            <call-template description="CallFilters" target="ComprasSemLicitacaoFilters"/>
+            <header name="Accept" scope="transport" value="application/json"/>
+            <property description="parametros" expression="fn:substring(get-property('uri.var.param_url'), 2)" name="uri.var.param_url" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="fn:concat('#################### RESOURCE', ' : CSV')" name="text"/>
+            </log>
+            <log level="custom">
+                <property expression="fn:concat('#################### param_url : ', get-property('uri.var.param_url'))" name="text"/>
+            </log>
+            <call>
+                <endpoint key="ComprasSemLicitacaoAPI-GET-CSV-comprasSemLicitacao"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/compras_slicitacao.html?*">
+        <inSequence>
+            <call-template description="CallFilters" target="ComprasSemLicitacaoFilters"/>
+            <header name="Accept" scope="transport" value="application/json"/>
+            <property description="parametros" expression="fn:substring(get-property('uri.var.param_url'), 2)" name="uri.var.param_url" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="fn:concat('#################### RESOURCE', ' : HTML')" name="text"/>
+            </log>
+            <log level="custom">
+                <property expression="fn:concat('#################### param_url : ', get-property('uri.var.param_url'))" name="text"/>
+            </log>
+            <call>
+                <endpoint key="ComprasSemLicitacaoAPI-GET-HTML-comprasSemLicitacao"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/compras_slicitacao.xml?*">
+        <inSequence>
+            <call-template description="CallFilters" target="ComprasSemLicitacaoFilters"/>
+            <header name="Accept" scope="transport" value="application/json"/>
+            <property description="parametros" expression="fn:substring(get-property('uri.var.param_url'), 2)" name="uri.var.param_url" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="fn:concat('#################### RESOURCE', ': XML')" name="text"/>
+            </log>
+            <log level="custom">
+                <property expression="fn:concat('#################### param_url : ', get-property('uri.var.param_url'))" name="text"/>
+            </log>
+            <call>
+                <endpoint key="ComprasSemLicitacaoAPI-GET-XML-comprasSemLicitacao"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
